@@ -103,3 +103,18 @@ function launcher_widgets_init () {
 	);
 }
 add_action('widgets_init', 'launcher_widgets_init');
+
+function launcher_styling () {
+    if (is_page()) {
+        $thumbnail_url = get_the_post_thumbnail_url(null, 'large');
+    ?>
+    <style>
+        .launcher-bg {
+            background-image: url(<?php echo $thumbnail_url; ?>);
+        }
+    </style>
+<?php
+    }
+}
+
+add_action('wp_head', 'launcher_styling');
