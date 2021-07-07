@@ -89,11 +89,10 @@
 
 		var d = new Date(new Date().getTime() + 800 * 120 * 120 * 2000);
 		simplyCountdown('.simply-countdown-one', {
-			year: d.getFullYear(),
-			month: d.getMonth() - 7,
-			day: d.getDate()
+			year: date.year,
+			month: date.month,
+			day: date.day
 		});
-
 	};
 	
 	

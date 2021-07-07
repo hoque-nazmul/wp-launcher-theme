@@ -74,6 +74,15 @@ function launcher_assets () {
         VERSION,
         true
     );
+
+    $launcher_year = get_post_meta(get_the_ID(), 'year', true);
+    $launcher_month = get_post_meta(get_the_ID(), 'month', true);
+    $launcher_day = get_post_meta(get_the_ID(), 'day', true);
+    wp_localize_script('main-js', 'date', [
+        'year' => $launcher_year,
+        'month' => $launcher_month,
+        'day' => $launcher_day
+    ]);
 }
 add_action('wp_enqueue_scripts', 'launcher_assets');
 
