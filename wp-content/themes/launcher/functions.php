@@ -76,3 +76,30 @@ function launcher_assets () {
     );
 }
 add_action('wp_enqueue_scripts', 'launcher_assets');
+
+
+function launcher_widgets_init () {
+    register_sidebar(
+		array(
+			'name'          => __( 'footer-left', 'launcher' ),
+			'id'            => 'footer-left',
+			'description'   => __( 'Footer Widget - Left', 'launcher' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+    register_sidebar(
+		array(
+			'name'          => __( 'footer-right', 'launcher' ),
+			'id'            => 'footer-right',
+			'description'   => __( 'Footer Widget - right', 'launcher' ),
+			'before_widget' => '<section id="%1$s" class="text-right widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action('widgets_init', 'launcher_widgets_init');
